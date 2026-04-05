@@ -1,9 +1,3 @@
-# %% [markdown]
-# 📈 American Option Demo (QoX)
-# Edit the code below and run it
-
-# %%
-# Colab-safe pip install
 import sys
 
 if "google.colab" in sys.modules:
