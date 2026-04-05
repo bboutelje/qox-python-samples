@@ -2,21 +2,22 @@
 
 This directory contains sample implementations using the QoX library. You can run these locally or instantly in the cloud via Google Colab.
 
-## 🚀 Run in Google Colab
+## 🚀 Get Started Instantly
 
-To run the **American Option** example without installing anything on your machine, click the button below:
+The easiest way to explore these examples is via **Google Colab**. No installation required.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bboutelje/qox-python-samples/)
-
-> **Note:** When you open a `.py` file directly in Colab, it opens in a text/editor view. To execute it, you can click **"Run"** at the top or create a new code cell and run `!python american_option.py`.
+| Example | Description | Run in Cloud |
+| :--- | :--- | :--- |
+| **American Option** | Pricing American options using the QoX framework. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bboutelje/qox-python-samples/blob/main/notebooks/american_option.ipynb) |
+| **Intro to QoX** | Basic setup and core library concepts. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bboutelje/qox-python-samples/blob/main/notebooks/intro.ipynb) |
 
 ---
 
-## 🛠 Local Setup
+## 🛠 Local Installation
 
-If you prefer to run the examples locally, follow these steps:
+If you are a developer and want to run these scripts on your own machine:
 
 1. **Clone the repository:**
    ```bash
    git clone [https://github.com/bboutelje/qox-python-samples.git](https://github.com/bboutelje/qox-python-samples.git)
-   cd qox-python-samples/examples
+   cd qox-python-samples
