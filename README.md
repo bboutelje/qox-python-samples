@@ -13,9 +13,7 @@ The easiest way to explore these examples is via **Google Colab**. No installati
 
 | Example | View Source | Interactive Demo |
 | :--- | :--- | :--- |
-| **American Option** | [`american_option.py`](./examples/american_option.py) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bboutelje/qox-python-samples/blob/main/notebooks/american_option.ipynb) |
 | **FDM vs Analytic** | [`fdm_vs_analytic.py`](./examples/fdm_vs_analytic.py) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bboutelje/qox-python-samples/blob/main/examples/fdm_vs_analytic.py) |
-
 ---
 
 ## 🛠 Local Installation
