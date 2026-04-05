@@ -6,9 +6,9 @@ This directory contains sample implementations using the QoX library. You can ru
 
 The easiest way to explore these examples is via **Google Colab**. No installation required.
 
-| Example | View Source (Read Code) | Interactive Demo (Run) |
+| Example | View Source | Interactive Demo |
 | :--- | :--- | :--- |
-| **American Option** | [**american_option.py**](./examples/american_option.py) | [![Open In Colab](... link ...)] |
+| **American Option** | [`american_option.py`](./examples/american_option.py) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bboutelje/qox-python-samples/blob/main/notebooks/american_option.ipynb) |
 
 ---
 
