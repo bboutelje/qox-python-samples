@@ -6,7 +6,7 @@ This directory contains sample implementations using the QoX library. You can ru
 
 To run the **American Option** example without installing anything on your machine, click the button below:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bboutelje/qox-python-samples/blob/main/)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bboutelje/qox-python-samples/)
 
 > **Note:** When you open a `.py` file directly in Colab, it opens in a text/editor view. To execute it, you can click **"Run"** at the top or create a new code cell and run `!python american_option.py`.
 
