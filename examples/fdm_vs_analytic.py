@@ -14,8 +14,6 @@ vol = 0.2
 option_type = qox.OptionType.Call
 exercise_style = qox.ExerciseStyle.European
 
-
-# 1. Setup
 fdm_config = qox.FdmConfig(nodes=500, time_steps=5, grid_std_devs=6.0)
 config = qox.Config().add_policy(qox.InstrumentPolicy().european().fdm(fdm_config))
 
@@ -30,7 +28,13 @@ market_frame = qox.OptionMarketFrame(
 
 # 2. Compute FDM
 start_time = time.perf_counter()
-fdm_result = stock_option.valuation().at().market(market_frame).config(config).compute()
+fdm_result = (
+    stock_option.valuation()
+    .at(valuation_time)
+    .market(market_frame)
+    .config(config)
+    .compute()
+)
 duration = time.perf_counter() - start_time
 
 # 3. Compute Analytic
