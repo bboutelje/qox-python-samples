@@ -8,7 +8,7 @@ The easiest way to explore these examples is via **Google Colab**. No installati
 
 | Example | View Source | Notebook | Interactive Demo |
 | :--- | :--- | :--- | :--- |
-| **Quickstart Guide** | — | [`quickstart.ipynb`](./notebooks/quickstart.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bboutelje/qox-python-samples/blob/HEAD/notebooks/quickstart.ipynb) |
+| **Quickstart Guide** | — | [`quickstart.ipynb`](./notebooks/quickstart.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bboutelje/qox-python-samples/blob/main/notebooks/quickstart.ipynb) |
 
 ## 🛠 Local Installation
 
