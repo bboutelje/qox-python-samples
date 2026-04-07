@@ -6,13 +6,9 @@ This directory contains sample implementations using the QoX library. You can ru
 
 The easiest way to explore these examples is via **Google Colab**. No installation required.
 
-| Example | View Source | Interactive Demo |
-| :--- | :--- | :--- |
-| **American Option** | [`american_option.py`](./examples/american_option.py) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bboutelje/qox-python-samples/blob/main/notebooks/american_option.ipynb) |
-
 | Example | View Source | Notebook | Interactive Demo |
 | :--- | :--- | :--- | :--- |
-| **FDM vs Analytic** | [`fdm_vs_analytic.py`](./examples/fdm_vs_analytic.py) | [`fdm_vs_analytic.ipynb`](./notebooks/fdm_vs_analytic.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bboutelje/qox-python-samples/blob/main/notebooks/fdm_vs_analytic.ipynb) |
+| **Quickstart Guide** | — | [`quickstart.ipynb`](./notebooks/quickstart.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bboutelje/qox-python-samples/blob/main/notebooks/quickstart.ipynb) |
 
 ## 🛠 Local Installation
 
