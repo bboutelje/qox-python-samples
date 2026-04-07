@@ -18,7 +18,7 @@ fdm_config = qox.FdmConfig(nodes=500, time_steps=5, grid_std_devs=6.0)
 config = qox.Config().add_policy(qox.InstrumentPolicy().european().fdm(fdm_config))
 
 # expiry = datetime.now(timezone.utc) + timedelta(days=1)
-stock_option = qox.StockOption(strike, expiry, option_type, exercise_style)
+stock_option = qox.VanillaOption(strike, expiry, option_type, exercise_style)
 
 market_frame = qox.OptionMarketFrame(
     spot=spot,
