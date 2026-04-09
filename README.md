@@ -37,7 +37,7 @@ This benchmark compares American Put pricing using Finite Difference Methods (FD
 | 1000 | 70.82 ms | 7.10e-04 | **38.99 ms** | 1.04e-04 |
 | 2000 | 148.76 ms | 3.48e-04 | **79.66 ms** | 2.34e-05 |
 
-![FDM Convergence Graph](./benchmarks/convergence_plot.png)
+![FDM Convergence Graph](./benchmarks/fdm_convergence.png)
 
 **This is just the baseline; further optimizations are in progress.**
 
