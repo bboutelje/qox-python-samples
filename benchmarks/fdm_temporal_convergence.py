@@ -2,6 +2,7 @@ import time
 from datetime import datetime, timezone
 
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
 import matplotlib.ticker as ticker
 import QuantLib as ql
 
@@ -139,11 +140,13 @@ ax.loglog(qox_times, qox_errors, "s-", label="QoX (FDM)", color="#ff7f0e", linew
 
 # Axis Formatting
 ax.xaxis.set_major_formatter(ticker.ScalarFormatter())
-ax.xaxis.get_major_formatter().set_scientific(False)
+formatter = ax.xaxis.get_major_formatter()
+if isinstance(formatter, mticker.ScalarFormatter):
+    formatter.set_scientific(False)
 ax.grid(True, which="both", ls="-", alpha=0.3)
 
 plt.xlabel("Execution Time (seconds)")
-plt.ylabel("Absolute Error (vs QuantLib reference price")
+plt.ylabel("Absolute Error (vs QuantLib reference price)")
 plt.title("Performance Comparison: QoX vs. QuantLib")
 plt.legend()
 plt.tight_layout()
