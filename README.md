@@ -19,21 +19,26 @@ If you are a developer and want to run these scripts on your own machine:
    git clone [https://github.com/bboutelje/qox-python-samples.git](https://github.com/bboutelje/qox-python-samples.git)
    cd qox-python-samples
 
-## 🏎 Benchmarks: QoX vs. QuantLib
+## 🏎 Performance: QoX vs. QuantLib
 
-This is a head-to-head convergence test for American Put pricing (FDM). 
+This benchmark compares American Put pricing using Finite Difference Methods (FDM). 
+
+**Result:** So far, QoX achieves at least a **10x speedup** over QuantLib for any given accuracy level.
 
 | Steps | QL Latency | QL Error | QoX Latency | QoX Error |
 | :--- | :--- | :--- | :--- | :--- |
-| **5** | 1.23 ms | 1.43e-01 | **212.8 μs** | **1.53e-02** |
-| **50** | 4.33 ms | 1.52e-02 | **1.62 ms** | **2.00e-03** |
-| **1000** | 50.64 ms | 7.44e-04 | **30.20 ms** | **1.03e-04** |
+| 5 | 1.49 ms | 1.57e-01 | **272.2 μs** | 1.53e-02 |
+| 10 | 3.66 ms | 6.10e-02 | **938.9 μs** | 4.20e-03 |
+| 25 | 6.36 ms | 2.77e-02 | **2.12 ms** | 2.30e-03 |
+| 50 | 6.14 ms | 1.39e-02 | **2.67 ms** | 2.00e-03 |
+| 100 | 12.58 ms | 6.82e-03 | **5.40 ms** | 2.40e-04 |
+| 250 | 18.24 ms | 2.83e-03 | **9.99 ms** | 4.88e-04 |
+| 500 | 35.94 ms | 1.43e-03 | **19.30 ms** | 2.99e-04 |
+| 1000 | 70.82 ms | 7.10e-04 | **38.99 ms** | 1.04e-04 |
+| 2000 | 148.76 ms | 3.48e-04 | **79.66 ms** | 2.34e-05 |
 
-### The Reality:
-* **Microsecond Floor:** QoX hits the board in **$<250\mu s$**. Legacy engines are often stuck in the millisecond range before they even return a price.
-* **Efficiency:** QoX at **50 steps** is more accurate than QuantLib at **500 steps**—and it gets there **21x faster**.
-* **Stability:** No "damping" hacks or scheme-switching required. The math is just tighter.
+![FDM Convergence Graph](./benchmarks/convergence_plot.png)
 
-**And this is just the beginning.**
+**This is just the baseline; further optimizations are in progress.**
 
-> Run the benchmark: [`benchmarks/fdm_temporal_convergence.py`](./benchmarks/fdm_temporal_convergence.py)
+> Run the test: [`benchmarks/fdm_temporal_convergence.py`](./benchmarks/fdm_temporal_convergence.py)
