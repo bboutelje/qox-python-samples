@@ -40,7 +40,7 @@ This benchmark compares American Put pricing using Finite Difference Methods (FD
 ![FDM Convergence Graph](./benchmarks/fdm_convergence.png)
 
 ### 📊 Methodology Note
-This is a baseline comparison using single-run latencies. While not a formal warm-up benchmark, it captures the raw computational overhead and sufficiently demonstrates the performance disparity while bypassing QuantLib's internal result caching.
+This is a baseline comparison using single-run (cold start) latencies. While it lacks a formal warm-up phase, the data sufficiently demonstrates the fundamental performance disparity between the two solvers.
 
 ---
 
