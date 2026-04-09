@@ -14,7 +14,7 @@ vol = 0.2
 option_type = qox.OptionType.Call
 exercise_style = qox.ExerciseStyle.European
 
-fdm_config = qox.FdmConfig(nodes=500, time_steps=5, grid_std_devs=6.0)
+fdm_config = qox.FdmConfig(nodes=500, time_steps=50, grid_std_devs=6.0)
 config = qox.Config().add_policy(qox.InstrumentPolicy().european().fdm(fdm_config))
 
 # expiry = datetime.now(timezone.utc) + timedelta(days=1)
