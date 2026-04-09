@@ -143,7 +143,7 @@ ax.xaxis.get_major_formatter().set_scientific(False)
 ax.grid(True, which="both", ls="-", alpha=0.3)
 
 plt.xlabel("Execution Time (seconds)")
-plt.ylabel(f"Absolute Error (vs QuantLib reference price")
+plt.ylabel("Absolute Error (vs QuantLib reference price")
 plt.title("Performance Comparison: QoX vs. QuantLib")
 plt.legend()
 plt.tight_layout()
