@@ -39,6 +39,11 @@ This benchmark compares American Put pricing using Finite Difference Methods (FD
 
 ![FDM Convergence Graph](./benchmarks/fdm_convergence.png)
 
+### 📊 Methodology Note
+This is a baseline comparison using single-run latencies. While not a formal warm-up benchmark, it captures the raw computational overhead and sufficiently demonstrates the performance disparity while bypassing QuantLib's internal result caching.
+
+---
+
 **This is just the baseline; further optimizations are in progress.**
 
 > Run the test: [`benchmarks/fdm_temporal_convergence.py`](./benchmarks/fdm_temporal_convergence.py)
