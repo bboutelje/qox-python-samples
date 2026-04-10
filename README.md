@@ -1,6 +1,17 @@
 # QoX Python Examples
 
-This directory contains sample implementations using the QoX library. You can run these locally or instantly in the cloud via Google Colab.
+**QoX** is a fast quant library written in Rust. These samples demonstrate its performance and usage.
+
+---
+
+## 🚀 Support the R&D
+**[❤ Sponsor QoX on GitHub](https://github.com/sponsors/bboutelje)**
+
+Sponsorship funds the R&D of this project. The base Python implementation will always remain free.
+
+> *Note: Sponsorship is for patronage only. It does not include technical support, consulting, or access to private source code.*
+
+---
 
 ## 🚀 Get Started Instantly
 
@@ -41,9 +52,7 @@ This benchmark compares American Put pricing using Finite Difference Methods (FD
 
 ### 📊 Methodology Note
 This is a baseline comparison using single-run (cold start) latencies. While it lacks a formal warm-up phase, the data sufficiently demonstrates the fundamental performance disparity between the two solvers.
-
+  
 ---
 
 **This is just the baseline; further optimizations are in progress.**
-
-> Run the test: [`benchmarks/fdm_temporal_convergence.py`](./benchmarks/fdm_temporal_convergence.py)
