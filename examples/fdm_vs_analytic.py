@@ -18,7 +18,7 @@ fdm_config = qox.FdmConfig(nodes=500, time_steps=50, grid_std_devs=6.0)
 config = qox.Config().add_policy(qox.InstrumentPolicy().european().fdm(fdm_config))
 
 # expiry = datetime.now(timezone.utc) + timedelta(days=1)
-stock_option = qox.VanillaOption(strike, expiry, option_type, exercise_style)
+vanilla_option = qox.VanillaOption(strike, expiry, option_type, exercise_style)
 
 market_frame = qox.OptionMarketFrame(
     spot=spot,
@@ -29,7 +29,7 @@ market_frame = qox.OptionMarketFrame(
 # 2. Compute FDM
 start_time = time.perf_counter()
 fdm_result = (
-    stock_option.valuation()
+    vanilla_option.valuation()
     .at(valuation_time)
     .market(market_frame)
     .config(config)
@@ -39,7 +39,7 @@ duration = time.perf_counter() - start_time
 
 # 3. Compute Analytic
 analytic_result = (
-    stock_option.valuation().at(valuation_time).market(market_frame).compute()
+    vanilla_option.valuation().at(valuation_time).market(market_frame).compute()
 )
 
 # 4. Print results
