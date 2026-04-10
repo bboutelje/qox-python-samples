@@ -7,24 +7,36 @@ import qox
 fdm_config = qox.FdmConfig(nodes=500, time_steps=5)
 config = qox.Config().add_policy(
     qox.InstrumentPolicy().american().put().fdm(fdm_config)
-)  # .fdm(fdm_config))
+)
 
 ny_tz = ZoneInfo("America/New_York")
 valuation_time = datetime(2025, 9, 25, 17, 0, tzinfo=ny_tz)
 expiry = datetime(2026, 9, 25, 17, 0, tzinfo=ny_tz)
 vanilla_option = qox.VanillaOption(
-    100.0, expiry, qox.OptionType.Call, qox.ExerciseStyle.American
+    100.0, expiry, qox.OptionType.Put, qox.ExerciseStyle.American
 )
 
 market_frame = qox.OptionMarketFrame(
-    spot=105.0,
+    spot=95.0,
     rate_curve=qox.RateCurve.continuous(0.05, qox.DayCountConvention.Act365Fixed),
     vol_surface=qox.VolSurface.flat(0.2, qox.DayCountConvention.Act365Fixed),
 )
-result = vanilla_option.valuation().market(market_frame).compute()
+result = (
+    vanilla_option.valuation()
+    .at(valuation_time)
+    .market(market_frame)
+    .config(config)
+    .compute()
+)
 
 start_time = time.perf_counter()
-result = vanilla_option.valuation().market(market_frame).compute()
+result = (
+    vanilla_option.valuation()
+    .at(valuation_time)
+    .market(market_frame)
+    .config(config)
+    .compute()
+)
 end_time = time.perf_counter()
 
 duration = end_time - start_time
