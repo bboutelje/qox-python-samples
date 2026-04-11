@@ -17,7 +17,7 @@ def get_ql_convention(convention: qox.DayCountConvention):
         # ql.Thirty360.BondBasis matches the '183' reference values
         # for February end-of-month logic in your Rust tests.
         return ql.Thirty360(ql.Thirty360.BondBasis)
-    elif convention == qox.DayCountConvention.ActActISDA:
+    elif convention == qox.DayCountConvention.ActAct.ISDA:
         return ql.ActualActual(ql.ActualActual.ISDA)
     elif convention == qox.DayCountConvention.Act360:
         return ql.Actual360()
@@ -64,11 +64,11 @@ def test_act_act_isda_parity():
 
     # Qox calculation
     qox_yf = qox.PeriodCalculator.year_fraction(
-        start_dt, end_dt, qox.DayCountConvention.ActActISDA
+        start_dt, end_dt, qox.DayCountConvention.ActAct.ISDA
     )
 
     # QuantLib calculation
-    ql_convention = get_ql_convention(qox.DayCountConvention.ActActISDA)
+    ql_convention = get_ql_convention(qox.DayCountConvention.ActAct.ISDA)
     ql_yf = ql_convention.yearFraction(to_ql_date(start_dt), to_ql_date(end_dt))
 
     # Using 1e-12 tolerance as per your Rust test
