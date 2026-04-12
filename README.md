@@ -56,3 +56,22 @@ This is a baseline comparison using single-run (cold start) latencies. While it 
 ---
 
 **This is just the baseline; further optimizations are in progress.**
+
+## 🗺️ Roadmap
+
+**v0.1.0**
+* Core FDM library.
+* American exercise free boundary problem.
+* Baseline performance benchmarks ($10\text{x}+$ vs QuantLib).
+
+**v0.2.0**
+* Support for discrete dividends.
+
+**v0.3.0**
+* Implied Volatility (IV) solvers.
+
+**Future**
+* Yield curve framework.
+* Volatility surfaces.
+
+*Note: Projected path; subject to change.*
