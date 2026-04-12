@@ -77,8 +77,8 @@ qox_times, qox_errors = [], []
 # QOX Market Setup
 market_frame = qox.OptionMarketFrame(
     spot=SPOT,
-    rate_curve=qox.RateCurve.continuous(RATE, qox.DayCountConvention.Act365Fixed),
-    vol_surface=qox.VolSurface.flat(VOL, qox.DayCountConvention.Act365Fixed),
+    rate_curve=qox.RateCurve.continuous(RATE, qox.DayCountConvention.ACT_365_FIXED),
+    vol_surface=qox.VolSurface.flat(VOL, qox.DayCountConvention.ACT_365_FIXED),
 )
 stock_option = qox.VanillaOption(
     STRIKE, EXPIRY_TIME, qox.OptionType.Put, qox.ExerciseStyle.American

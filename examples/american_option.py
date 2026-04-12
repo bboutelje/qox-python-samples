@@ -18,8 +18,8 @@ vanilla_option = qox.VanillaOption(
 
 market_frame = qox.OptionMarketFrame(
     spot=95.0,
-    rate_curve=qox.RateCurve.continuous(0.05, qox.DayCountConvention.Act365Fixed),
-    vol_surface=qox.VolSurface.flat(0.2, qox.DayCountConvention.Act365Fixed),
+    rate_curve=qox.RateCurve.continuous(0.05, qox.DayCountConvention.ACT_365_FIXED),
+    vol_surface=qox.VolSurface.flat(0.2, qox.DayCountConvention.ACT_365_FIXED),
 )
 result = (
     vanilla_option.valuation()

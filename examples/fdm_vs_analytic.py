@@ -5,16 +5,16 @@ from zoneinfo import ZoneInfo
 import qox
 
 ny_tz = ZoneInfo("America/New_York")
-spot = 95.0
+spot = 100.0
 strike = 100.0
-valuation_time = datetime(2025, 9, 25, 17, 0, tzinfo=ny_tz)
+valuation_time = datetime(2026, 9, 24, 17, 0, tzinfo=ny_tz)
 expiry = datetime(2026, 9, 25, 17, 0, tzinfo=ny_tz)
 rate = 0.05
 vol = 0.2
 option_type = qox.OptionType.Call
 exercise_style = qox.ExerciseStyle.European
 
-fdm_config = qox.FdmConfig(nodes=500, time_steps=50, grid_std_devs=6.0)
+fdm_config = qox.FdmConfig(nodes=500, time_steps=5, grid_std_devs=6.0)
 config = qox.Config().add_policy(qox.InstrumentPolicy().european().fdm(fdm_config))
 
 # expiry = datetime.now(timezone.utc) + timedelta(days=1)
@@ -22,8 +22,8 @@ vanilla_option = qox.VanillaOption(strike, expiry, option_type, exercise_style)
 
 market_frame = qox.OptionMarketFrame(
     spot=spot,
-    rate_curve=qox.RateCurve.continuous(rate, qox.DayCountConvention.Act365Fixed),
-    vol_surface=qox.VolSurface.flat(vol, qox.DayCountConvention.Act365Fixed),
+    rate_curve=qox.RateCurve.continuous(rate, qox.DayCountConvention.ACT_365_FIXED),
+    vol_surface=qox.VolSurface.flat(vol, qox.DayCountConvention.ACT_365_FIXED),
 )
 
 # 2. Compute FDM
