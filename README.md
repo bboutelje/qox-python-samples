@@ -1,6 +1,6 @@
 # QoX Python Examples
 
-**QoX** is a fast and accurate quant library written in Rust, and designed to work in production environments. These samples demonstrate its performance and ease of use.
+**QoX** is a fast and accurate quant library written in Rust, designed to work in production environments. These samples demonstrate its performance and ease of use.
 
 ---
 
