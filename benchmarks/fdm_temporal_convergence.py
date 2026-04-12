@@ -51,7 +51,6 @@ def setup_ql_american_put(time_steps, grid_points=1000):
     exercise = ql.AmericanExercise(ql_val_date, ql_exp_date)
     option = ql.VanillaOption(payoff, exercise)
 
-    # Use Rannacher damping (3 steps) and Crank-Nicolson
     engine = ql.FdBlackScholesVanillaEngine(
         process,
         time_steps,
