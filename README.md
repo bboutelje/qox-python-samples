@@ -1,6 +1,6 @@
 # QoX Python Examples
 
-**QoX** is a fast quant library written in Rust. These samples demonstrate its performance and usage.
+**QoX** is a fast and accurate library written in Rust, and designed to work in production environments. These samples demonstrate its performance and ease of use.
 
 ---
 
@@ -61,8 +61,8 @@ This is a baseline comparison using single-run (cold start) latencies. While it 
 
 **v0.1.0**
 * Core FDM library.
-* American exercise free boundary problem.
-* Baseline performance benchmarks ($10\text{x}+$ vs QuantLib).
+* American exercise condition.
+* Baseline performance benchmarks.
 
 **v0.2.0**
 * Support for discrete dividends.
@@ -70,8 +70,10 @@ This is a baseline comparison using single-run (cold start) latencies. While it 
 **v0.3.0**
 * Implied Volatility (IV) solvers.
 
-**Future**
+**Immediate Future**
 * Yield curve framework.
 * Volatility surfaces.
+* Support for Business/252 day count.
+* Full coverage of Black-Scholes based equity vol desk requirements.
 
-*Note: Projected path; subject to change.*
+*Note: Near term projected path; subject to change.*
