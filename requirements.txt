@@ -1,4 +1,4 @@
-qox
-QuantLib
-matplotlib
-pytest
+qox~=0.1.0
+QuantLib==1.41
+matplotlib==3.10.8
+pytest==9.0.3

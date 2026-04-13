@@ -7,7 +7,7 @@ import qox
 ny_tz = ZoneInfo("America/New_York")
 spot = 100.0
 strike = 100.0
-valuation_time = datetime(2026, 9, 24, 17, 0, tzinfo=ny_tz)
+valuation_time = datetime(2025, 9, 25, 17, 0, tzinfo=ny_tz)
 expiry = datetime(2026, 9, 25, 17, 0, tzinfo=ny_tz)
 rate = 0.05
 vol = 0.2
