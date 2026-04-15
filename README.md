@@ -7,9 +7,8 @@
 ## 🚀 Support the R&D
 **[❤ Sponsor QoX on GitHub](https://github.com/sponsors/bboutelje)**
 
-Sponsorship funds the R&D of this project. The base Python implementation will always remain free.
-
-> *Note: Sponsorship is for patronage only. It does not include technical support, consulting, or access to private source code.*
+Sponsorship funds the R&D of this project. The base Python implementation will always remain free.  
+*Inquire about institutional sponsorship: **qox.library [at] gmail.com***
 
 ---
 
