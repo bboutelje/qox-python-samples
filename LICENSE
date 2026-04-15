@@ -1,21 +1,36 @@
-MIT License
+# SOFTWARE LICENSE AGREEMENT
 
-Copyright (c) 2026 Bruce Boutelje
+**Product:** QoX
+**Licensor:** Bruce Boutelje
+**Contact:** qox.library [at] gmail.com
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+---
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+### 1. FREE FOR END-USE
+This Software is provided **free of charge** for all internal production and end-use purposes.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+* **Allowed:** Quants, traders, and firms may use the Software for quantitative research, backtesting, and live trading execution within their legal entity at no cost.
+* **Allowed:** Use in commercial trading operations is permitted without royalty or licensing fees, provided the Software itself is not being resold.
+
+### 2. WRAPPERS & DERIVATIVE WORKS
+You are permitted to "wrap" the Software or create derivative Python abstractions. You may distribute these wrappers or derivative works provided that:
+* **License Continuity:** Any distribution must be licensed under these exact same terms. You cannot apply a more permissive (e.g., MIT/Apache) or more restrictive license to the portion of the work that relies on this Software.
+* **Non-Commercial Distribution:** These wrappers must be shared freely. You cannot charge a fee for the distribution of any work that incorporates or relies upon this Software.
+* **Attribution:** This LICENSE file must be included in any distribution.
+
+### 3. PROHIBITION ON COMMERCIAL RESALE
+This license is for end-use only. You are strictly prohibited from "flipping" or selling the Software:
+* **No Commercial Bundling:** You may not sell, rent, lease, or charge a subscription fee for any product, platform, or service that incorporates this Software.
+* **No Service Provision (SaaS):** You may not provide the functionality of the Software as a paid hosted service or managed API.
+* **No "White-Labeling":** You may not repackage the Software and sell it as your own proprietary product.
+
+### 4. TECHNICAL RESTRICTIONS
+* **No Reverse Engineering:** You shall not decompile, disassemble, or attempt to derive the source code.
+* **Integrity:** The compiled binary components must remain intact and may not be modified or tampered with.
+
+### 5. COMMERCIAL INQUIRIES
+To obtain a license for commercial redistribution, or to incorporate this Software into a paid product or service, you must obtain a separate **Commercial Distribution License**. Please direct all commercial inquiries to the Licensor at:
+**qox.library [at] gmail.com**
+
+### 6. TERMINATION & WARRANTY
+This license terminates automatically if you fail to comply with its terms. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE.
