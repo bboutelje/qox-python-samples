@@ -6,11 +6,11 @@
 
 ---
 
-### 1. FREE FOR END-USE
-This Software is provided **free of charge** for all internal production and end-use purposes.
+### 1. FREE USE
+This Software is **free of charge** for all purposes, including commercial use.
 
-* **Allowed:** Quants, traders, and firms may use the Software for quantitative research, backtesting, and live trading execution within their legal entity at no cost.
-* **Allowed:** Use in commercial trading operations is permitted without royalty or licensing fees, provided the Software itself is not being resold.
+* **Allowed:** You may use the Software for any internal or production purpose at no cost.
+* **Condition:** Use is permitted without royalty or licensing fees, provided the Software itself is not being resold or bundled as a paid product.
 
 ### 2. WRAPPERS & DERIVATIVE WORKS
 You are permitted to "wrap" the Software or create derivative Python abstractions. You may distribute these wrappers or derivative works provided that:
