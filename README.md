@@ -51,7 +51,7 @@ This benchmark compares American Put pricing using Finite Difference Methods (FD
 
 ### 📊 Methodology Note
 This is a baseline comparison using single-run (cold start) latencies. While it lacks a formal warm-up phase, the data sufficiently demonstrates the fundamental performance disparity between the two solvers.
-  
+
 ---
 
 **This is just the baseline; further optimizations are in progress.**
@@ -59,7 +59,6 @@ This is a baseline comparison using single-run (cold start) latencies. While it 
 ## 🗺️ Roadmap
 
 **v0.1.0**
-* Core FDM library.
 * American exercise condition.
 * Baseline performance benchmarks.
 
@@ -67,12 +66,12 @@ This is a baseline comparison using single-run (cold start) latencies. While it 
 * Support for discrete dividends.
 
 **v0.3.0**
-* Implied Volatility (IV) solvers.
+* Implied volatility solver.
 
-**Immediate Future**
+**Other short-term goals**
 * Yield curve framework.
 * Volatility surfaces.
 * Support for Business/252 day count.
-* Full coverage of Black-Scholes based equity vol desk requirements.
+* More advanced American options model.
 
 *Note: Near term projected path; subject to change.*
