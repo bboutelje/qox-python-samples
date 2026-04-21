@@ -56,7 +56,7 @@ def setup_ql_american_put(time_steps, grid_points=1000):
         time_steps,
         grid_points,
         QUANTLIB_DAMPING_STEPS,
-        ql.FdmSchemeDesc.CrankNicolson(),
+        ql.FdmSchemeDesc.TrBDF2(),
     )
     option.setPricingEngine(engine)
     return option
@@ -66,22 +66,35 @@ def setup_ql_american_put(time_steps, grid_points=1000):
 print("Calculating QuantLib Reference...")
 ref_ql = setup_ql_american_put(time_steps=20000, grid_points=2000)
 TRUE_PRICE = ref_ql.NPV()
-print(f"QuantLib Reference Price: {TRUE_PRICE:.6f}")
-
-# --- BENCHMARKING ---
-steps_range = [5, 10, 25, 50, 100, 250, 500, 1000, 2000]
-ql_times, ql_errors = [], []
-qox_times, qox_errors = [], []
 
 # QOX Market Setup
+vanilla_option = qox.VanillaOption(
+    STRIKE, EXPIRY_TIME, qox.OptionType.Put, qox.ExerciseStyle.American
+)
 market_frame = qox.OptionMarketFrame(
     spot=SPOT,
     rate_curve=qox.RateCurve.continuous(RATE, qox.DayCountConvention.ACT_365_FIXED),
     vol_surface=qox.VolSurface.flat(VOL, qox.DayCountConvention.ACT_365_FIXED),
 )
-stock_option = qox.VanillaOption(
-    STRIKE, EXPIRY_TIME, qox.OptionType.Put, qox.ExerciseStyle.American
-)
+
+# fdm_config = qox.FdmConfig(nodes=2000, time_steps=20000)
+# config = qox.Config().add_policy(qox.InstrumentPolicy().american().fdm(fdm_config))
+# ref_qox = (
+#     vanilla_option.valuation()
+#     .at(VALUATION_TIME)
+#     .config(config)
+#     .market(market_frame)
+#     .compute()
+# )
+# TRUE_PRICE = ref_qox.price
+
+print(f"QuantLib Reference Price: {TRUE_PRICE:.6f}")
+
+# --- BENCHMARKING ---
+steps_range = [5, 10, 25, 50, 100, 250, 500, 1000, 2000, 5000, 10000]
+ql_times, ql_errors = [], []
+qox_times, qox_errors = [], []
+
 
 print(
     f"\n{'Steps':>6} | {'QL Latency':>12} | {'QL Error':>10} | {'QoX Latency':>12} | {'QoX Error':>10}"
@@ -107,7 +120,7 @@ for ts in steps_range:
 
     start_qox = time.perf_counter()
     res_qox = (
-        stock_option.valuation()
+        vanilla_option.valuation()
         .at(VALUATION_TIME)
         .config(config)
         .market(market_frame)

@@ -4,7 +4,7 @@ from zoneinfo import ZoneInfo
 
 import qox
 
-fdm_config = qox.FdmConfig(nodes=1000, time_steps=50)
+fdm_config = qox.FdmConfig(nodes=100, time_steps=5)
 config = qox.Config().add_policy(
     qox.InstrumentPolicy().american().put().fdm(fdm_config)
 )
