@@ -22,13 +22,8 @@ The easiest way to explore these examples is via **Google Colab**. No installati
 
 ## 🛠 Local Installation
 
-If you are a developer and want to run these scripts on your own machine:
+Run `pip install qox`.
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/bboutelje/qox-python-samples.git](https://github.com/bboutelje/qox-python-samples.git)
-   cd qox-python-samples
-   
 ---
 
 ## 🏎 Performance: QoX vs. QuantLib
