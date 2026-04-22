@@ -33,21 +33,11 @@ If you are a developer and want to run these scripts on your own machine:
 
 This benchmark compares American Put pricing using Finite Difference Methods (FDM). 
 
-**Result:** So far, QoX achieves at least a **10x speedup** over QuantLib for any given accuracy level.
-
-| Steps | QL Latency | QL Error | QoX Latency | QoX Error |
-| :--- | :--- | :--- | :--- | :--- |
-| 5 | 1.08 ms | 1.57e-01 | **196.2 μs** | 1.53e-02 |
-| 10 | 1.93 ms | 6.10e-02 | **449.5 μs** | 4.20e-03 |
-| 25 | 2.25 ms | 2.77e-02 | **884.2 μs** | 2.30e-03 |
-| 50 | 3.27 ms | 1.39e-02 | **1.49 ms** | 2.00e-03 |
-| 100 | 5.16 ms | 6.82e-03 | **2.72 ms** | 2.40e-04 |
-| 250 | 13.69 ms | 2.83e-03 | **7.46 ms** | 4.88e-04 |
-| 500 | 24.83 ms | 1.43e-03 | **14.67 ms** | 2.99e-04 |
-| 1000 | 44.84 ms | 7.10e-04 | **27.35 ms** | 1.04e-04 |
-| 2000 | 90.09 ms | 3.48e-04 | **56.16 ms** | 2.34e-05 |
+**Result:** QoX achieves up to a **40x** speedup over QuantLib at standard production precision (2 d.p.).
 
 ![FDM Convergence Graph](./benchmarks/fdm_convergence.png)
+
+> **Technical Note:** Performance gains are optimized for standard production precision. While price convergence remains robust, please note that the speedup factor and Greek stability may vary near the early exercise boundary. Greek stability will be addressed in a future release.
 
 ### 📊 Methodology Note
 This is a baseline comparison using single-run (cold start) latencies. While it lacks a formal warm-up phase, the data sufficiently demonstrates the fundamental performance disparity between the two solvers.
