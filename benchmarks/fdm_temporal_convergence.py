@@ -14,12 +14,19 @@ STRIKE = 100.0
 VOL = 0.20
 RATE = 0.05
 DIV = 0.0
+QL_OPTION_TYPE = ql.Option.Put
+QOX_OPTION_TYPE = qox.OptionType.Put
+QOX_EXERCISE_STYLE = qox.ExerciseStyle.American
+# QOX_EXERCISE_STYLE = qox.ExerciseStyle.European
+
 
 # Synchronized Timing
-VALUATION_TIME = datetime(2025, 9, 25, 17, 0, tzinfo=timezone.utc)
-EXPIRY_TIME = datetime(2026, 9, 25, 17, 0, tzinfo=timezone.utc)
+VALUATION_TIME = datetime(2025, 9, 25, 0, 0, tzinfo=timezone.utc)
+EXPIRY_TIME = datetime(2026, 9, 25, 0, 0, tzinfo=timezone.utc)
 
 QUANTLIB_DAMPING_STEPS = 0
+GRID_POINTS = 101
+QOX_GRID_STD_DEVS = 4.0
 
 
 # --- UTILS ---
@@ -29,7 +36,7 @@ def dt_to_ql(dt):
 
 
 # --- QUANTLIB SETUP ---
-def setup_ql_american_put(time_steps, grid_points=1000):
+def setup_ql_american_put(time_steps, grid_points=GRID_POINTS):
     ql_val_date = dt_to_ql(VALUATION_TIME)
     ql_exp_date = dt_to_ql(EXPIRY_TIME)
 
@@ -47,7 +54,8 @@ def setup_ql_american_put(time_steps, grid_points=1000):
     )
 
     process = ql.BlackScholesMertonProcess(underlying, dividend_ts, yield_ts, vol_ts)
-    payoff = ql.PlainVanillaPayoff(ql.Option.Put, STRIKE)
+    payoff = ql.PlainVanillaPayoff(QL_OPTION_TYPE, STRIKE)
+    # exercise = ql.EuropeanExercise(ql_exp_date)
     exercise = ql.AmericanExercise(ql_val_date, ql_exp_date)
     option = ql.VanillaOption(payoff, exercise)
 
@@ -69,7 +77,7 @@ TRUE_PRICE = ref_ql.NPV()
 
 # QOX Market Setup
 vanilla_option = qox.VanillaOption(
-    STRIKE, EXPIRY_TIME, qox.OptionType.Put, qox.ExerciseStyle.American
+    STRIKE, EXPIRY_TIME, QOX_OPTION_TYPE, QOX_EXERCISE_STYLE
 )
 market_frame = qox.OptionMarketFrame(
     spot=SPOT,
@@ -77,8 +85,8 @@ market_frame = qox.OptionMarketFrame(
     vol_surface=qox.VolSurface.flat(VOL, qox.DayCountConvention.ACT_365_FIXED),
 )
 
-# fdm_config = qox.FdmConfig(nodes=2000, time_steps=20000)
-# config = qox.Config().add_policy(qox.InstrumentPolicy().american().fdm(fdm_config))
+# fdm_config = qox.FdmConfig(grid_nodes=20000, time_steps=20000)
+# config = qox.Config().add_policy(qox.InstrumentPolicy().european().fdm(fdm_config))
 # ref_qox = (
 #     vanilla_option.valuation()
 #     .at(VALUATION_TIME)
@@ -91,17 +99,16 @@ market_frame = qox.OptionMarketFrame(
 print(f"QuantLib Reference Price: {TRUE_PRICE:.6f}")
 
 # --- BENCHMARKING ---
-steps_range = [5, 10, 25, 50, 100, 250, 500, 1000, 2000, 5000, 10000]
+steps_range = [10000, 3, 5, 10, 25, 50, 100, 250, 500, 1000, 2000, 5000, 10000]
 ql_times, ql_errors = [], []
 qox_times, qox_errors = [], []
-
 
 print(
     f"\n{'Steps':>6} | {'QL Latency':>12} | {'QL Error':>10} | {'QoX Latency':>12} | {'QoX Error':>10}"
 )
 print("-" * 66)
 
-for ts in steps_range:
+for i, ts in enumerate(steps_range):
     # 1. QuantLib Run
     opt_ql = setup_ql_american_put(time_steps=ts)
     start_ql = time.perf_counter()
@@ -113,10 +120,10 @@ for ts in steps_range:
     ql_errors.append(err_ql)
 
     # 2. QoX Run
-    fdm_config = qox.FdmConfig(nodes=1000, time_steps=ts)
-    config = qox.Config().add_policy(
-        qox.InstrumentPolicy().american().put().fdm(fdm_config)
+    fdm_config = qox.FdmConfig(
+        grid_nodes=GRID_POINTS, time_steps=ts, grid_std_devs=QOX_GRID_STD_DEVS
     )
+    config = qox.Config().add_policy(qox.InstrumentPolicy().fdm(fdm_config))
 
     start_qox = time.perf_counter()
     res_qox = (
@@ -126,6 +133,10 @@ for ts in steps_range:
         .market(market_frame)
         .compute()
     )
+
+    if i == 0:
+        continue
+
     dur_qox = time.perf_counter() - start_qox
     err_qox = abs(res_qox.price - TRUE_PRICE)
 
@@ -147,8 +158,17 @@ for ts in steps_range:
 plt.figure(figsize=(10, 6))
 ax = plt.gca()
 
-ax.loglog(ql_times, ql_errors, "o-", label="QuantLib (FDM)", color="#1f77b4", alpha=0.7)
-ax.loglog(qox_times, qox_errors, "s-", label="QoX (FDM)", color="#ff7f0e", linewidth=2)
+ax.loglog(
+    ql_times[1:],
+    ql_errors[1:],
+    "o-",
+    label="QuantLib (FDM)",
+    color="#1f77b4",
+    alpha=0.7,
+)
+ax.loglog(
+    qox_times[1:], qox_errors[1:], "s-", label="QoX (FDM)", color="#ff7f0e", linewidth=2
+)
 
 # Axis Formatting
 ax.xaxis.set_major_formatter(ticker.ScalarFormatter())

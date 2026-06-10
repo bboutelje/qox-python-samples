@@ -18,7 +18,7 @@ vanilla_option = qox.VanillaOption(
 
 # Configuration for Finite Difference Method (FDM)
 time_steps = 50
-fdm_config = qox.FdmConfig(nodes=1000, time_steps=time_steps)
+fdm_config = qox.FdmConfig(grid_nodes=1000, time_steps=time_steps)
 config = qox.Config().add_policy(
     qox.InstrumentPolicy().american().put().fdm(fdm_config)
 )
