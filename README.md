@@ -1,14 +1,12 @@
 # QoX Python Examples
 
-**QoX** is a fast and accurate quant library written in Rust, designed to work in production environments. These samples demonstrate its performance and ease of use.
+**QoX** is a high-performance finite difference quant library, written in Rust, designed with production environments in mind. These samples demonstrate its performance and ease of use.
 
 ---
 
-## 🚀 Support the R&D
-**[❤ Sponsor QoX on GitHub](https://github.com/sponsors/bboutelje)**
+## Consulting
 
-Sponsorship funds the R&D of this project. The base Python implementation will always remain free.  
-*Inquire about institutional sponsorship: **qox.library [at] gmail.com***
+*Inquire about consulting: **qox.library [at] gmail.com***
 
 ---
 
@@ -28,32 +26,24 @@ Run `pip install qox`.
 
 ## 🏎 Performance: QoX vs. QuantLib
 
-This benchmark compares American Put pricing using Finite Difference Methods (FDM). 
-
-**Result:** QoX achieves up to a **40x** speedup over QuantLib at standard production precision.
+This benchmark compares American put pricing using the finite difference method where QoX achieves about a 40x speedup over QuantLib to get the same accuracy for a 1 year ATM option. While this is for single throughput evaluation, it is easily parallelised using SIMD vectorisation and multi-threading.
 
 ![FDM Convergence Graph](./benchmarks/fdm_convergence.png)
-
-> **Technical Note:** Performance gains are optimized for standard production precision. While price convergence remains robust, please note that the speedup factor and Greek stability may vary near the early exercise boundary. Greek stability will be addressed in a future release.
 
 ---
 
 ## 🗺️ Roadmap
 
-**v0.1.0**
-* American exercise condition.
-* Baseline performance benchmarks.
-
 **v0.2.0**
-* Support for discrete dividends.
-
-**v0.3.0**
+* Discrete dividends.
 * Implied volatility solver.
 
-**Other short-term goals**
+**v0.3.0**
 * Yield curve framework.
 * Volatility surfaces.
-* Support for Business/252 day count.
-* More advanced American options model.
 
-*Note: Near term projected path; subject to change.*
+**Other short-term goals**
+* More advanced American options model.
+* SABR model
+* Other instruments
+* Support for Business/252 day count.

@@ -4,6 +4,11 @@ import QuantLib as ql
 
 import qox
 
+GRID_NODES = 1000
+TIME_STEPS = 100
+QOX_STD_DEVS = 4.0
+
+
 # --- Parameters ---
 spot_price = 100.0
 strike = 100.0
@@ -13,7 +18,7 @@ ql_option_type = ql.Option.Call
 qox_option_type = qox.OptionType.Call
 
 # --- 1. QuantLib Setup (Analytic Benchmark & FDM) ---
-ql_eval_date = ql.Date(14, ql.September, 2026)
+ql_eval_date = ql.Date(15, ql.September, 2025)
 ql.Settings.instance().evaluationDate = ql_eval_date
 ql_expiry_date = ql.Date(15, ql.September, 2026)
 day_count = ql.Actual365Fixed()
@@ -41,7 +46,7 @@ ql_an = {
 
 # QL FDM
 fdm_engine = ql.FdBlackScholesVanillaEngine(
-    bs_process, None, 100, 1000, 0, ql.FdmSchemeDesc.TrBDF2()
+    bs_process, None, TIME_STEPS, GRID_NODES, 0, ql.FdmSchemeDesc.TrBDF2()
 )
 ql_option.setPricingEngine(fdm_engine)
 ql_fdm = {
@@ -52,7 +57,7 @@ ql_fdm = {
 }
 
 # --- 2. Qox Setup (FDM) ---
-eval_dt = datetime(2026, 9, 14, 0, 0, tzinfo=timezone.utc)
+eval_dt = datetime(2025, 9, 15, 0, 0, tzinfo=timezone.utc)
 exp_dt = datetime(2026, 9, 15, 0, 0, tzinfo=timezone.utc)
 
 market_frame = qox.OptionMarketFrame(
@@ -60,7 +65,9 @@ market_frame = qox.OptionMarketFrame(
     rate_curve=qox.RateCurve.continuous(rate, qox.DayCountConvention.ACT_365_FIXED),
     vol_surface=qox.VolSurface.flat(vol, qox.DayCountConvention.ACT_365_FIXED),
 )
-fdm_config = qox.FdmConfig(grid_nodes=1000, time_steps=100, grid_std_devs=6.0)
+fdm_config = qox.FdmConfig(
+    grid_nodes=GRID_NODES, time_steps=TIME_STEPS, grid_std_devs=QOX_STD_DEVS
+)
 config = qox.Config().add_policy(qox.InstrumentPolicy().european().fdm(fdm_config))
 qox_opt = qox.VanillaOption(strike, exp_dt, qox_option_type, qox.ExerciseStyle.European)
 

@@ -9,7 +9,7 @@ import QuantLib as ql
 import qox
 
 # --- ADJUSTABLE INPUTS ---
-SPOT = 95.0
+SPOT = 100.0
 STRIKE = 100.0
 VOL = 0.20
 RATE = 0.05
@@ -25,7 +25,7 @@ VALUATION_TIME = datetime(2025, 9, 25, 0, 0, tzinfo=timezone.utc)
 EXPIRY_TIME = datetime(2026, 9, 25, 0, 0, tzinfo=timezone.utc)
 
 QUANTLIB_DAMPING_STEPS = 0
-GRID_POINTS = 101
+GRID_POINTS = 81
 QOX_GRID_STD_DEVS = 4.0
 
 
