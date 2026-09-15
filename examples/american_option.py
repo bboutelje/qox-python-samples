@@ -6,8 +6,8 @@ import qox
 
 n = 100
 fdm_config = qox.FdmConfig(
-    grid_nodes=100,
-    time_steps=10,
+    grid_nodes=1000,
+    time_steps=100,
     grid_std_devs=4.0,
     transform=qox.TransformConfig.sinh(0.3),
 )
@@ -15,7 +15,7 @@ config = qox.Config().add_policy(qox.InstrumentPolicy().american().fdm(fdm_confi
 
 ny_tz = ZoneInfo("America/New_York")
 valuation_time = datetime(2025, 9, 15, 17, 0, tzinfo=ny_tz)
-expiry = datetime(2026, 9, 15, 17, 0, tzinfo=ny_tz)
+expiry = datetime(2025, 10, 4, 23, 0, tzinfo=ny_tz)
 vanilla_option = qox.VanillaOption(
     100.0, expiry, qox.OptionType.Put, qox.ExerciseStyle.American
 )
@@ -30,10 +30,10 @@ div_schedule = qox.DividendSchedule(
 # div_schedule = None
 
 market_frame = qox.OptionMarketFrame(
-    spot=95.0,
+    spot=92.2,
     rate_curve=qox.RateCurve.continuous(0.05, qox.DayCountConvention.ACT_365_FIXED),
     vol_surface=qox.VolSurface.flat(0.2, qox.DayCountConvention.ACT_365_FIXED),
-    dividends=div_schedule,
+    # dividends=div_schedule,
     # borrow_curve=qox.RateCurve.continuous(0.00, qox.DayCountConvention.ACT_365_FIXED),
 )
 result = (

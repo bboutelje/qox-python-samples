@@ -9,7 +9,7 @@ import qox
 # 1. Setup the core Instrument and Configuration
 ny_tz = ZoneInfo("America/New_York")
 valuation_time = datetime(2025, 9, 25, 17, 0, tzinfo=ny_tz)
-expiry = datetime(2026, 9, 25, 17, 0, tzinfo=ny_tz)
+expiry = datetime(2025, 10, 14, 17, 0, tzinfo=ny_tz)
 
 # Define an American Put Option with Strike 100
 vanilla_option = qox.VanillaOption(
@@ -18,7 +18,7 @@ vanilla_option = qox.VanillaOption(
 
 # Configuration for Finite Difference Method (FDM)
 time_steps = 50
-fdm_config = qox.FdmConfig(grid_nodes=1000, time_steps=time_steps)
+fdm_config = qox.FdmConfig(grid_nodes=10000, time_steps=time_steps)
 config = qox.Config().add_policy(
     qox.InstrumentPolicy().american().put().fdm(fdm_config)
 )
@@ -33,7 +33,7 @@ for s in spot_prices:
     market_frame = qox.OptionMarketFrame(
         spot=s,
         rate_curve=qox.RateCurve.continuous(0.05, qox.DayCountConvention.ACT_365_FIXED),
-        vol_surface=qox.VolSurface.flat(0.2, qox.DayCountConvention.ACT_365_FIXED),
+        vol_surface=qox.VolSurface.flat(0.3, qox.DayCountConvention.ACT_365_FIXED),
     )
 
     result = (

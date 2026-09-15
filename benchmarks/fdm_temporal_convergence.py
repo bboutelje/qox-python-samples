@@ -3,7 +3,6 @@ from datetime import datetime, timezone
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
-import matplotlib.ticker as ticker
 import QuantLib as ql
 
 import qox
@@ -171,7 +170,7 @@ ax.loglog(
 )
 
 # Axis Formatting
-ax.xaxis.set_major_formatter(ticker.ScalarFormatter())
+ax.xaxis.set_major_formatter(mticker.ScalarFormatter())
 formatter = ax.xaxis.get_major_formatter()
 if isinstance(formatter, mticker.ScalarFormatter):
     formatter.set_scientific(False)

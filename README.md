@@ -1,6 +1,6 @@
 # QoX Python Examples
 
-**QoX** is a high-performance finite difference quant library, written in Rust, designed with production environments in mind. These samples demonstrate its performance and ease of use.
+**QoX** is a finite difference quant library, written in Rust, with an unpublished numerical algorithm for American options. The samples provided in this repository demonstrate its performance. The current version (0.2.1) handles discrete dividends and implied volatility. It works for vol greater than 10%, and it is untested for negative rates and high dividend/borrow yield.
 
 ---
 
@@ -8,11 +8,21 @@
 
 *Inquire about consulting: **qox.library [at] gmail.com***
 
+Other projects:
+
+Pricing Black-Scholes 3x faster than the COS method, applicable to other stochastic processes. Robust across volatilities and time to expiry, even where the COS method requires more terms.
+
+Sub-microsecond discrete dividend handling for European options, applicable to any stochostic process. Machine precision is possible.
+
+Sub-microsecond American option pricing in development.
+
+Sub-microsecond option calibration in early development.
+
 ---
 
 ## Get Started Instantly
 
-The easiest way to explore these examples is via **Google Colab**. No installation required.
+The easiest way to explore the examples is via **Google Colab**.
 
 | Example | Notebook | Interactive Demo |
 | :--- | :--- | :--- |
@@ -26,24 +36,6 @@ Run `pip install qox`.
 
 ## Performance: QoX vs. QuantLib
 
-This benchmark compares American put pricing using the finite difference method where QoX achieves about a 40x speedup over QuantLib to get the same accuracy for a 1 year ATM option. While this is for single throughput evaluation, it is easily parallelised using SIMD vectorisation and multi-threading.
+This benchmark compares American put pricing using the finite difference method where QoX achieves about a 40x speedup over QuantLib to get the same accuracy for a 1 year ATM American option. The point is simply show it's a lot faster for the same accuracy. This was done without SIMD and on one core.
 
 ![FDM Convergence Graph](./benchmarks/fdm_convergence.png)
-
----
-
-## Roadmap
-
-**v0.2.0**
-* Discrete dividends.
-* Implied volatility solver.
-
-**v0.3.0**
-* Yield curve framework.
-* Volatility surfaces.
-
-**Other short-term goals**
-* More advanced American options model.
-* SABR model
-* Other instruments
-* Support for Business/252 day count.
