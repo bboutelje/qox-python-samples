@@ -12,7 +12,7 @@ Other projects:
 
 Pricing Black-Scholes 3x faster than the COS method, applicable to other stochastic processes. Robust across volatilities and time to expiry, even where the COS method requires more terms.
 
-Sub-microsecond discrete dividend handling for European options, applicable to any stochostic process. Machine precision is possible.
+Sub-microsecond discrete dividend handling for European options.
 
 Sub-microsecond American option pricing in development.
 

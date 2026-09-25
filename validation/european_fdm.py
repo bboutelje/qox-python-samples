@@ -6,7 +6,7 @@ import qox
 
 GRID_NODES = 1000
 TIME_STEPS = 100
-QOX_STD_DEVS = 4.0
+QOX_STD_DEVS = 5.0
 
 
 # --- Parameters ---

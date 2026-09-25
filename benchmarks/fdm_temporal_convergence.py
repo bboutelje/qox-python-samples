@@ -24,7 +24,7 @@ VALUATION_TIME = datetime(2025, 9, 25, 0, 0, tzinfo=timezone.utc)
 EXPIRY_TIME = datetime(2026, 9, 25, 0, 0, tzinfo=timezone.utc)
 
 QUANTLIB_DAMPING_STEPS = 0
-GRID_POINTS = 81
+GRID_POINTS = 101
 QOX_GRID_STD_DEVS = 4.0
 
 
