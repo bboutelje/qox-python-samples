@@ -1,6 +1,6 @@
 # QoX Python Examples
 
-**QoX** is a finite difference quant library, written in Rust, with an unpublished numerical algorithm for American options. The samples provided in this repository demonstrate its performance. The current version (0.2.1) handles discrete dividends and implied volatility. 
+**QoX** is a finite difference quant library, written in Rust, with an unpublished numerical algorithm for American options. The samples provided in this repository demonstrate its performance. The current version (0.2.2) handles discrete dividends and implied volatility. 
 
 The repository also provides a script which plots gamma and theta which are smooth sufficiently far from the exercise boundary depending on the chosen granularity. It works for vol greater than 10%, and it is untested for negative rates and high dividend yield. It assumes your hardware supports FMA3 and AVX2. Part of the working Rust code can be viewed in the qox-fdm repository.
 
@@ -12,7 +12,7 @@ The repository also provides a script which plots gamma and theta which are smoo
 
 Other projects:
 
-Pricing Black-Scholes at least 3x faster than the COS method, applicable to other stochastic processes. Robust across volatilities and time to expiry, even where the COS method requires more terms.
+Pricing Black-Scholes at least 3x faster than the COS method, applicable to other stochastic processes.
 
 Sub-microsecond discrete dividend handling for European options.
 
