@@ -12,7 +12,7 @@ The repository also provides a script which plots gamma and theta which are smoo
 
 Other projects:
 
-Pricing Black-Scholes at least 3x faster than the COS method, applicable to other stochastic processes.
+Pricing Black-Scholes and Heston about 3x to 4x faster than the COS method, applicable to other stochastic processes.
 
 Sub-microsecond discrete dividend handling for European options.
 
